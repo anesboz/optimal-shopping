@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/optimal-shopping/static/css/main.9641da46.css",
-    "main.js": "/optimal-shopping/static/js/main.7857f009.js",
+    "main.js": "/optimal-shopping/static/js/main.3e907021.js",
     "index.html": "/optimal-shopping/index.html",
     "main.9641da46.css.map": "/optimal-shopping/static/css/main.9641da46.css.map",
-    "main.7857f009.js.map": "/optimal-shopping/static/js/main.7857f009.js.map"
+    "main.3e907021.js.map": "/optimal-shopping/static/js/main.3e907021.js.map"
   },
   "entrypoints": [
     "static/css/main.9641da46.css",
-    "static/js/main.7857f009.js"
+    "static/js/main.3e907021.js"
   ]
 }
