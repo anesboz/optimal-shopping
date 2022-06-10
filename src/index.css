@@ -44,3 +44,11 @@ body {
 .blue {
   border: 2px solid blue;
 }
+
+
+.headerClassName {
+  visibility: hidden;
+}
+.price {
+  background-color: blue;
+}

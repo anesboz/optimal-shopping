@@ -1,23 +1,60 @@
-import Main from 'views/Main'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Grid, ThemeProvider } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import { myTheme } from 'variables/theme'
 import Banner from 'components/Banner'
+import { routes } from 'routes'
+import BottomNavigationMenu from 'components/BottomNavigationMenu'
+import { connect } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { getCart, getData } from 'actions/localstorage/generalActions'
 
-function App() {
+function App(props) {
+  const { refresh } = props.mainBranch
+  const [data, setData] = useState([])
+  const [selected, setSelected] = useState([])
+
+  useEffect(() => {
+    setData(getData())
+    setSelected(getCart())
+  }, [refresh])
+
   return (
     <ThemeProvider theme={myTheme}>
       <BrowserRouter basename="/optimal-shopping">
-        <Grid xs={12} style={{ maxWidth: 600, flex: 1, height: `100vh` }}>
+        <div
+          style={{
+            position: `relative`,
+            maxWidth: 600,
+            flex: 1,
+            height: `100%`,
+            backgroundColor: `white`,
+            overflow: 'hidden'
+          }}
+        >
           <Banner />
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Grid>
+          <div style={{ padding: 30 }}>
+            <Routes>
+              {routes.map((e, i) => {
+                return (
+                  <Route
+                    key={i}
+                    path={e.path}
+                    element={<e.element data={data} selected={selected} />}
+                  />
+                )
+              })}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </div> 
+          <BottomNavigationMenu routes={routes} />
+        </div>
       </BrowserRouter>
     </ThemeProvider>
   )
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  mainBranch: state.mainBranch,
+})
+
+export default connect(mapStateToProps)(App)

@@ -21,19 +21,7 @@ export default function Banner() {
       >
         🛒 Optimal Shopping
       </h2>
-      <Button
-        style={{
-          position: 'absolute',
-          right: 20,
-          color: 'white',
-        }}
-        variant="text"
-        onClick={() =>
-          window.open('https://github.com/anesboz/optimal-shopping#readme')
-        }
-      >
-        Tutorial
-      </Button>
+      
     </div>
   )
 }
