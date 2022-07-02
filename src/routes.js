@@ -3,7 +3,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 import SettingsIcon from '@mui/icons-material/Settings'
 import Settings from 'views/Settings'
 import AllProducts from 'views/AllProducts'
-import Cart from 'views/Cart/Cart'
+import Cart from 'views/Cart'
 
 export const routes = [
   {

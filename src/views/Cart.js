@@ -39,9 +39,7 @@ export default function Cart(props) {
         }}
         selectOnFocus
       />
-      <Recyclerview
-        data={data.filter((e, i) => selected.includes(e.product))}
-      />
+      <Recyclerview data={data.filter((e) => selected.includes(e.product))} />
     </div>
   )
 }
